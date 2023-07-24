@@ -5,10 +5,10 @@ class Player {
         gameBoxNode.append(this.node)
         
         this.x = 50;
-        this.y = 50;
-        this.w = 40;
-        this.h = 35;
-        this.gravitySpeed = 1;
+        this.y = 450;
+        this.w = 30;
+        this.h = 50;
+        this.gravitySpeed = 0;
         this.jumpSpeed = 50;
 
         this.node.style.width = `${this.w}px`;
@@ -16,11 +16,8 @@ class Player {
         this.node.style.position = "absolute";
         this.node.style.top = `${this.y}px`;
         this.node.style.left = `${this.x}px`;
-
     }
 
-
-    
     gravityEffect = () => {
         this.y += this.gravitySpeed;
         this.positionUpdate()

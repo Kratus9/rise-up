@@ -5,8 +5,8 @@ class Platform {
      
         gameBoxNode.append(this.node)
 
-        this.x = gameBoxNode.offsetWidth;
-        this.y = posY;
+        this.x = 50;
+        this.y = 500;
         this.w = 100;
         this.h = 50;
 

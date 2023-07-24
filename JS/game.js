@@ -1,7 +1,7 @@
 class Game {
     constructor() {
       this.player = new Player();
-      // this.tube = new Tube();
+      // this.platf = new Tube();
       this.platfArr = [];
   
       this.frames = 0;
@@ -20,36 +20,36 @@ class Game {
       }
     }
   
-    // colPlatf = () => {
-    //   this.tubeArr.forEach((eachObst) => {
-    //       if (this.bird.x < eachObst.x + eachObst.w &&
-    //           this.bird.x + this.bird.w > eachObst.x &&
-    //           this.bird.y < eachObst.y + eachObst.h &&
-    //           this.bird.y + this.bird.h > eachObst.y
-    //           ) {
-    //           this.gameOver()
-    //           }
-    //   })
-    // }
+    colPlatf = () => {
+      this.platfArr.forEach((eachObst) => {
+          if (this.player.x < eachObst.x + eachObst.w &&
+              this.player.x + this.player.w > eachObst.x &&
+              this.player.y < eachObst.y + eachObst.h &&
+              this.player.y + this.player.h > eachObst.y
+              ) {
+              // this.gameOver()
+              }
+      })
+    }
   
     obstAppear = () => {
       if (this.platfArr.length === 0 || this.frames % 120 === 0) {
           let randomPosY = Math.floor(Math.random() * -200)
   
-          let newPlatfUp = new Platform(randomPosY, true)
-          this.platfArr.push (newPlatfUp)
+          // let newPlatfUp = new Platform(randomPosY, true)
+          // this.platfArr.push (newPlatfUp)
   
           let newPlatfDown = new Platform(randomPosY + 400, false)
           this.platfArr.push (newPlatfDown)
       }
     }
   
-    // obstDisappear = () => {
-    //   if (this.tubeArr[0].x < -50) {
-    //       this.tubeArr[0].node.remove()
-    //       this.tubeArr.shift()
-    //   }
-    // }
+    obstDisappear = () => {
+      if (this.platfArr[0].x < -50) {
+          this.platfArr[0].node.remove()
+          this.platfArr.shift()
+      }
+    }
   
     gameLoop = () => {
       // console.log("start")
@@ -57,9 +57,9 @@ class Game {
       this.player.gravityEffect();
       // this.tube.automaticMovement();
       this.obstAppear();
-    //   this.obstDisappear();
+      this.obstDisappear();
       this.colPlayerFloor();
-    //   this.colPlatf();
+      this.colPlatf();
       this.platfArr.forEach((eachObst) => {
           eachObst.automaticMovement();
       })
