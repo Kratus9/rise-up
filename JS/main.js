@@ -5,7 +5,7 @@ const gameScreenNode = document.querySelector("#game-screen");
 const gameBoxNode = document.querySelector("#game-box");
 const gameOverScreenNode = document.querySelector("#gameover-screen")
 
-let gameObj = null;
+let gameObj;
 
 // * STATE MANAGEMENT FUNCTIONS
 function startGame () {

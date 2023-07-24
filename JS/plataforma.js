@@ -14,7 +14,7 @@ class Platform {
         this.node.style.top = `${this.y}px`;
         this.node.style.left = `${this.x}px`;
 
-        this.isMovingRight = true
+        this.isMoving = true
         this.direction = 1
     }
     
@@ -23,7 +23,7 @@ class Platform {
     }
 
     automaticMovement = () => {
-        if (this.isMovingRight) {
+        if (this.isMoving) {
             this.x += 1 * this.direction;
             this.positionUpdate();
             if (this.x + this.w >= gameBoxNode.offsetWidth) {
@@ -34,6 +34,9 @@ class Platform {
                 this.x = 0
                 this.direction = 1
             }
+        }
+        else {
+            this.positionUpdate()
         }
     }
 }

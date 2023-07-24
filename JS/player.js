@@ -5,11 +5,11 @@ class Player {
         gameBoxNode.append(this.node)
         
         this.x = 185;
-        this.y = 525;
+        this.y = 530;
         this.w = 30;
-        this.h = 50;
-        this.gravitySpeed = 0;
-        this.jumpSpeed = 50;
+        this.h = 45;
+        this.gravitySpeed = 1;
+        this.jumpSpeed = 150;
 
         this.node.style.width = `${this.w}px`;
         this.node.style.height = `${this.h}px`;

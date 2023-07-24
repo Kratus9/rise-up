@@ -27,15 +27,18 @@ class Game {
         this.player.y < eachObst.y + eachObst.h &&
         this.player.y + this.player.h > eachObst.y
       ) {
-        // this.gameOver()
+        gameObj.Platform.isMoving = false //para que detenga la plataforma de colision, pero las detiene todas
       }
     });
   };
 
   obstAppear = () => {
-    for (let i = 0; i < 8; i++) {
-      let stage = new Platform(150, i * 75 + 50); // Adjust the y position based on the index
+    for (let i = 0; i < 5; i++) {
+      let stage = new Platform(150, i * 125 + 75); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
       this.platfArr.push(stage);
+      // if ([i] === 0) {
+      //   gameObj.Platform(150, 550)
+      // }
     }
   };
 
