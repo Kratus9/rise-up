@@ -20,26 +20,37 @@ function startGame () {
 function restartGame () {
     gameOverScreenNode.style.display = "none";
     splashScreenNode.style.display = "flex";
+    gameBoxNode.innerHTML = 
+    `<div id="game-screen" class="container">
+        <div id="game-box">
+      
+        </div>
+    </div>`
+    gameObj.clear;
 }
 
 // * ADD EVENT LISTENERS
 startBtnNode.addEventListener("click", startGame)
 window.addEventListener("keydown", (event) => {
+    if (gameObj.player.gravitySpeed === 0)
     if (event.key === " ") {  //Salta al apretar la SpaceBar
-        gameObj.player.jumpEffect()
+        gameObj.player.jumpEffect();
+        gameObj.player.gravityOn();
     }
 })
 window.addEventListener("keydown", (event) => { //movimiento del PJ
     if (event.key === "ArrowRight" || event.key === "d") {  //moveRight al apretar => o la "d"
         if (gameObj.player.x < ((gameBoxNode.offsetWidth) - gameObj.player.w)) {
             gameObj.player.x += 20;
-            gameObj.player.positionUpdate()
+            gameObj.player.positionUpdate();
+            gameObj.player.gravityOn();
         }
     }
     else if (event.key === "ArrowLeft" || event.key === "a") { //moveLeft al apretar <= o la "a"
         if (gameObj.player.x > 0) {
             gameObj.player.x -= 20
-            gameObj.player.positionUpdate()
+            gameObj.player.positionUpdate();
+            gameObj.player.gravityOn();
         }
     }
 })

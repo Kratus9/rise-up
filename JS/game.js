@@ -21,25 +21,31 @@ class Game {
 
   colPlatf = () => {
     this.platfArr.forEach((eachObst) => {
-      if (
-        this.player.x < eachObst.x + eachObst.w &&
-        this.player.x + this.player.w > eachObst.x &&
-        this.player.y < eachObst.y + eachObst.h &&
-        this.player.y + this.player.h > eachObst.y
+      const piesPosY = this.player.y + this.player.h;
+      const piesColPlatf = piesPosY >= eachObst.y && piesPosY <= eachObst.y + eachObst.h;
+      const piesLargoPlatf = this.player.x + this.player.w > eachObst.x && this.player.x < eachObst.x + eachObst.w;
+      if (piesColPlatf && piesLargoPlatf
+        // this.player.x < eachObst.x + eachObst.w &&
+        // this.player.x + this.player.w > eachObst.x &&
+        // this.player.y + this.player.h >= eachObst.y &&
+        // this.player.y + this.player.h <= eachObst.y + eachObst.h
       ) {
-        gameObj.Platform.isMoving = false //para que detenga la plataforma de colision, pero las detiene todas
+          eachObst.isMoving = false //para que detenga la plataforma de colision, pero las detiene todas
+          this.player.gravitySpeed = 0
+      }
+      else {
+        eachObst.isMoving = true
       }
     });
   };
 
   obstAppear = () => {
-    for (let i = 0; i < 5; i++) {
-      let stage = new Platform(150, i * 125 + 75); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
+    for (let i = 0; i < 9; i++) {
+      let stage = new Platform(150, i * 65 + 50) // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
       this.platfArr.push(stage);
-      // if ([i] === 0) {
-      //   gameObj.Platform(150, 550)
-      // }
     }
+    this.platfArr[this.platfArr.length - 1].x = 160
+    // necesitamos extraer la última stage para ubicarla exactamente
   };
 
   gameLoop = () => {

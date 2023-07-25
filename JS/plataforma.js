@@ -1,12 +1,12 @@
 class Platform {
     constructor(x, y) {
         this.node = document.createElement("img");
-        this.node.src = "Fotos/Plataformas/Stage 1-3.jpeg"
+        this.node.src = "Fotos/Plataformas/Stage 1-3.png.jpeg"
         gameBoxNode.append(this.node)
         this.x = Math.floor(Math.random(x) * gameBoxNode.offsetWidth);
         this.y = y;
-        this.w = 100;
-        this.h = 50;
+        this.w = 75;
+        this.h = 25;
         
         this.node.style.width = `${this.w}px`;
         this.node.style.height = `${this.h}px`;
