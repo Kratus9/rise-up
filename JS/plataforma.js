@@ -1,7 +1,7 @@
 class Platform {
-    constructor(x, y) {
+    constructor(x, y, w, speed) {
         this.node = document.createElement("img");
-        this.node.src = "Fotos/Plataformas/Stage 1-3.png.jpeg"
+        this.node.src = "Fotos/Plataformas/Stage 1-3.png"
         gameBoxNode.append(this.node)
         this.x = Math.floor(Math.random(x) * gameBoxNode.offsetWidth);
         this.y = y;
@@ -16,6 +16,7 @@ class Platform {
 
         this.isMoving = true
         this.direction = 1
+        this.speed = 1
     }
     
     positionUpdate = () => {
@@ -24,7 +25,7 @@ class Platform {
 
     automaticMovement = () => {
         if (this.isMoving) {
-            this.x += 1 * this.direction;
+            this.x += this.speed * this.direction;
             this.positionUpdate();
             if (this.x + this.w >= gameBoxNode.offsetWidth) {
                 this.x = gameBoxNode.offsetWidth - this.w

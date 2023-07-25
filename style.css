@@ -39,7 +39,6 @@ body {
     overflow: hidden; 
     position: relative;
     user-select: none;
-    background-image: url(Fotos/Fondos/Stage\ 1.jpeg);
     background-position: center;
     background-size: cover;
   }

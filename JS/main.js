@@ -20,13 +20,7 @@ function startGame () {
 function restartGame () {
     gameOverScreenNode.style.display = "none";
     splashScreenNode.style.display = "flex";
-    gameBoxNode.innerHTML = 
-    `<div id="game-screen" class="container">
-        <div id="game-box">
-      
-        </div>
-    </div>`
-    gameObj.clear;
+    gameBoxNode.innerHTML = ""
 }
 
 // * ADD EVENT LISTENERS

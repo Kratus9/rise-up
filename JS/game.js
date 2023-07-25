@@ -1,5 +1,7 @@
 class Game {
   constructor() {
+    gameBoxNode.style.backgroundImage = "url('Fotos/Fondos/Stage 1.jpeg')";
+
     this.player = new Player();
     this.platfArr = [];
 
@@ -13,6 +15,12 @@ class Game {
     gameOverScreenNode.style.display = "flex";
   };
 
+  nextStage = () => {
+    if (this.player.y >= 0) {
+      gameBoxNode.innerHTML = ""
+    }
+  }
+
   colPlayerFloor = () => {
     if (this.player.y + this.player.h > gameBoxNode.offsetHeight) {
       this.gameOver();
@@ -22,15 +30,16 @@ class Game {
   colPlatf = () => {
     this.platfArr.forEach((eachObst) => {
       const piesPosY = this.player.y + this.player.h;
-      const piesColPlatf = piesPosY >= eachObst.y && piesPosY <= eachObst.y + eachObst.h;
+      const piesColPlatf = piesPosY >= eachObst.y && piesPosY <= eachObst.y + 5;// este 5 sustituye la (h) altura de plataforma
       const piesLargoPlatf = this.player.x + this.player.w > eachObst.x && this.player.x < eachObst.x + eachObst.w;
+      
       if (piesColPlatf && piesLargoPlatf
         // this.player.x < eachObst.x + eachObst.w &&
         // this.player.x + this.player.w > eachObst.x &&
         // this.player.y + this.player.h >= eachObst.y &&
         // this.player.y + this.player.h <= eachObst.y + eachObst.h
       ) {
-          eachObst.isMoving = false //para que detenga la plataforma de colision, pero las detiene todas
+          eachObst.isMoving = false
           this.player.gravitySpeed = 0
       }
       else {
@@ -41,11 +50,11 @@ class Game {
 
   obstAppear = () => {
     for (let i = 0; i < 9; i++) {
-      let stage = new Platform(150, i * 65 + 50) // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
+      let stage = new Platform(150, i * 65 + 50/*, w, speed*/) // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
       this.platfArr.push(stage);
     }
     this.platfArr[this.platfArr.length - 1].x = 160
-    // necesitamos extraer la última stage para ubicarla exactamente
+    // necesitamos extraer la última stage para ubicarla exactamente en el eje x
   };
 
   gameLoop = () => {
