@@ -11,7 +11,7 @@ let gameObj;
 function startGame () {
     splashScreenNode.style.display = "none";
     gameScreenNode.style.display = "flex";
-    gameObj = new Game();
+    gameObj = new Game(1);
     gameObj.obstAppear();
     // console.log(gameObj)
     gameObj.gameLoop()
@@ -20,7 +20,10 @@ function startGame () {
 function restartGame () {
     gameOverScreenNode.style.display = "none";
     splashScreenNode.style.display = "flex";
-    gameBoxNode.innerHTML = ""
+    gameBoxNode.innerHTML = "";
+    gameObj = new Game(1);
+    gameObj.obstAppear();
+    gameObj.gameLoop();
 }
 
 // * ADD EVENT LISTENERS

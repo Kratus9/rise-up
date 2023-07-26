@@ -1,5 +1,6 @@
 class Game {
-  constructor() {
+  constructor(stage) {
+    // if(stage === 1) {Creamos condicionales exclusivamente para las modificaciones de cada stage
     gameBoxNode.style.backgroundImage = "url('Fotos/Fondos/Stage 1.jpeg')";
 
     this.player = new Player();
@@ -7,6 +8,7 @@ class Game {
 
     this.frames = 0;
     this.isGameOn = true;
+    this.stage = 1
   }
 
   gameOver = () => {
@@ -17,6 +19,7 @@ class Game {
 
   nextStage = () => {
     if (this.player.y >= 0) {
+      stage++;
       gameBoxNode.innerHTML = ""
     }
   }
@@ -49,6 +52,7 @@ class Game {
   };
 
   obstAppear = () => {
+    // crear condicionales para modificaciones de stages
     for (let i = 0; i < 9; i++) {
       let stage = new Platform(150, i * 65 + 50/*, w, speed*/) // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
       this.platfArr.push(stage);

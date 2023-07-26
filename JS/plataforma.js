@@ -1,5 +1,5 @@
 class Platform {
-    constructor(x, y, w, speed) {
+    constructor(x, y, w, speed, stage) {
         this.node = document.createElement("img");
         this.node.src = "Fotos/Plataformas/Stage 1-3.png"
         gameBoxNode.append(this.node)
