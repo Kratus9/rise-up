@@ -6,12 +6,13 @@ const gameBoxNode = document.querySelector("#game-box");
 const gameOverScreenNode = document.querySelector("#gameover-screen")
 
 let gameObj;
+let stage = 1
 
 // * STATE MANAGEMENT FUNCTIONS
 function startGame () {
     splashScreenNode.style.display = "none";
     gameScreenNode.style.display = "flex";
-    gameObj = new Game(1);
+    gameObj = new Game(stage);
     gameObj.obstAppear();
     // console.log(gameObj)
     gameObj.gameLoop()
@@ -21,9 +22,8 @@ function restartGame () {
     gameOverScreenNode.style.display = "none";
     splashScreenNode.style.display = "flex";
     gameBoxNode.innerHTML = "";
-    gameObj = new Game(1);
-    gameObj.obstAppear();
-    gameObj.gameLoop();
+    stage = 1
+    startGame()
 }
 
 // * ADD EVENT LISTENERS
