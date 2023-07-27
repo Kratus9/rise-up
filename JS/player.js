@@ -18,21 +18,21 @@ class Player {
         this.node.style.left = `${this.x}px`;
     }
 
-    gravityOn = () => {
+    gravityOn = () => { /*al llamar a esta función, activará siempre la gravedad*/
         this.gravitySpeed = 1
     }
 
-    gravityEffect = () => {
+    gravityEffect = () => { /*activará la caida del jugador 1px/sec*/
         this.y += this.gravitySpeed;
         this.positionUpdate()
     }
 
-    jumpEffect = () => {
+    jumpEffect = () => { /*el jugador efectua un salto vertical*/
         this.y -= this.jumpSpeed;
         this.positionUpdate()
     }
 
-    positionUpdate = () => {
+    positionUpdate = () => { /*actualización de cada elemento por segundo*/
         this.node.style.top = `${this.y}px`;
         this.node.style.left = `${this.x}px`;
     }

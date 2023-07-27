@@ -6,7 +6,7 @@ const gameScreenNode = document.querySelector("#game-screen");
 const gameBoxNode = document.querySelector("#game-box");
 const gameOverScreenNode = document.querySelector("#gameover-screen")
 
-let musikStage1 = new Audio ("Musik/Intro Epica.mp3")
+let musikStage1 = new Audio ("Musik/Intro Epica.mp3") /*creamos nodos para cada audio*/
 let musikStage2 = new Audio ("Musik/Primeras Stages.mp3")
 let musikStage3 = new Audio ("Musik/Olympo.mp3")
 let musikStage4 = new Audio ("Musik/Space Stage.mp3")
@@ -27,21 +27,21 @@ let gameObj;
 let stage = 1
 
 // * STATE MANAGEMENT FUNCTIONS
-function startGame () {
+function startGame () { /*activará la pantalla de juego y lo inicia*/
     splashScreenNode.style.display = "none";
     gameScreenNode.style.display = "flex";
     gameObj = new Game(stage);
     gameObj.obstAppear();
     gameObj.gameLoop()
 }
-function goToLobby () {
+function goToLobby () { /*volver a la pantalla del lobby*/
     gameOverScreenNode.style.display = "none";
     splashScreenNode.style.display = "flex";
     gameBoxNode.innerHTML = "";
     stage = 1
 }
 
-function retryGame () {
+function retryGame () { /*volver a jugar e intentar superarse pero sin pasar por lobby*/
     gameOverScreenNode.style.display = "none";
     splashScreenNode.style.display = "flex";
     gameBoxNode.innerHTML = "";
