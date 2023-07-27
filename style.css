@@ -2,16 +2,34 @@ body {
     margin: 0;
     background-color: rgb(131, 2, 92);
   }
+  #restart-btn:hover,
+  #start-btn:hover,
+  #retry-btn:hover {
+    cursor: pointer;
+    box-shadow: rgb(131, 2, 92) 1.95px 1.95px 2.6px inset;
+  }
   
   #start-btn,
-  #restart-btn {
-    background-color: rgb(26, 227, 241);
+  #retry-btn {
+    background-color: rgb(204, 11, 146);
     color: rgb(7, 7, 7);
     padding: 20px;
     font-size: 20px;
-    margin-top: 420px;
+    margin-top: 450px;
     border-radius: 10px;
     position: absolute;
+    box-shadow: 4px 4px 2px 0.5px rgb(131, 2, 92);
+  }
+
+  #restart-btn {
+    background-color: rgb(204, 11, 146);
+    color: rgb(7, 7, 7);
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 600px;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 4px 4px 2px 0.5px rgb(131, 2, 92);
   }
   
   .container {

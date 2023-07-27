@@ -1,26 +1,22 @@
 class Game {
   constructor(stage) {
     /*Creamos condicionales exclusivamente para las modificaciones de cada stage*/
+    gameBoxNode.style.backgroundImage = `url('Fotos/Fondos/Stage ${stage}.jpeg')`;
+    
     if (stage === 1) {
-      gameBoxNode.style.backgroundImage = "url('Fotos/Fondos/Stage 1.jpeg')";
-    }
-    else if (stage === 2) {
-      gameBoxNode.style.backgroundImage = "url('Fotos/Fondos/Stage 2.jpeg')";
+      musikStage1.play()
     }
     else if (stage === 3) {
-      gameBoxNode.style.backgroundImage = "url('Fotos/Fondos/Stage 3.jpeg')";
+      musikStage1.pause()
+      musikStage2.play()
     }
     else if (stage === 4) {
-      gameBoxNode.style.backgroundImage = "url('Fotos/Fondos/Stage 4.jpg')";
-    }
-    else if (stage === 5) {
-      gameBoxNode.style.backgroundImage = "url('Fotos/Fondos/Stage 5.jpg')";
+      musikStage2.pause()
+      musikStage3.play()
     }
     else if (stage === 6) {
-      gameBoxNode.style.backgroundImage = "url('Fotos/Fondos/Stage 6.jpg')";
-    }
-    else if (stage === 7) {
-      gameBoxNode.style.backgroundImage = "url('Fotos/Fondos/Stage 7.jpg')";
+      musikStage3.pause()
+      musikStage4.play()
     }
 
     this.player = new Player();
@@ -35,6 +31,11 @@ class Game {
     this.isGameOn = false;
     gameScreenNode.style.display = "none";
     gameOverScreenNode.style.display = "flex";
+    musikStage1.pause()
+    musikStage2.pause()
+    musikStage3.pause()
+    musikStage4.pause()
+    musikGameOver.play()
   };
 
   nextStage = () => {
@@ -47,7 +48,7 @@ class Game {
   };
 
   colPlayerFloor = () => {
-    if (this.player.y + this.player.h > gameBoxNode.offsetHeight) {
+    if (this.player.y + this.player.h === gameBoxNode.offsetHeight + 100) {
       this.gameOver();
     }
   };
@@ -97,7 +98,7 @@ class Game {
     }
     if (stage === 3 && this.nextLevel === true) {
     for (let i = 0; i < 9; i++) {
-      let stage = new Platform(150, i * 65 + 50, 50, 2, 3); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
+      let stage = new Platform(150, i * 65 + 50, 50, 1.5, 3); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
       this.platfArr.push(stage);
       this.nextLevel = false
     }
@@ -105,7 +106,7 @@ class Game {
     }
     if (stage === 4 && this.nextLevel === true) {
     for (let i = 0; i < 9; i++) {
-      let stage = new Platform(150, i * 65 + 50, 25, 2, 4); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
+      let stage = new Platform(150, i * 65 + 50, 50, 1.75, 4); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
       this.platfArr.push(stage);
       this.nextLevel = false
     }
@@ -113,7 +114,7 @@ class Game {
     }
     if (stage === 5 && this.nextLevel === true) {
     for (let i = 0; i < 9; i++) {
-      let stage = new Platform(150, i * 65 + 50, 25, 5, 5); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
+      let stage = new Platform(150, i * 65 + 50, 40, 2, 5); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
       this.platfArr.push(stage);
       this.nextLevel = false
     }
@@ -121,7 +122,7 @@ class Game {
     }
     if (stage === 6 && this.nextLevel === true) {
     for (let i = 0; i < 9; i++) {
-      let stage = new Platform(150, i * 65 + 50, 25, 10, 6); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
+      let stage = new Platform(150, i * 65 + 50, 30, 2.5, 6); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
       this.platfArr.push(stage);
       this.nextLevel = false
     }
@@ -129,7 +130,7 @@ class Game {
     }
     if (stage === 7 && this.nextLevel === true) {
     for (let i = 0; i < 9; i++) {
-      let stage = new Platform(150, i * 65 + 50, 25, 15, 7); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
+      let stage = new Platform(150, i * 65 + 50, 25, 3, 7); // i * (espaciado entre nubes) + (posicion de la primera nube respectivamente del techo)
       this.platfArr.push(stage);
       this.nextLevel = false
     }

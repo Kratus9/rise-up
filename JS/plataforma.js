@@ -7,6 +7,7 @@ class Platform {
       this.node.src = "Fotos/Plataformas/Stage 4-5.png.png";
     } else if (stage === 6 || stage === 7) {
       this.node.src = "Fotos/Plataformas/Stage 6-7.png.jpeg";
+      this.node.style.filter = "drop-shadow(0px 12px 10px #fff)"
     }
     gameBoxNode.append(this.node);
     this.x = Math.floor(Math.random(x) * gameBoxNode.offsetWidth);
