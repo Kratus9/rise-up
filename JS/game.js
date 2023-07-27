@@ -3,15 +3,15 @@ class Game {
     /*Creamos condicionales exclusivamente para las modificaciones de cada stage*/
     gameBoxNode.style.backgroundImage = `url('Fotos/Fondos/Stage ${stage}.jpeg')`;
 
-    if (stage === 1) {
+    if (stage === 1 || stage === 2) {
       musikStage1.play();
     } else if (stage === 3) {
       musikStage1.pause();
       musikStage2.play();
-    } else if (stage === 4) {
+    } else if (stage === 4 || stage === 5) {
       musikStage2.pause();
       musikStage3.play();
-    } else if (stage === 6) {
+    } else if (stage === 6 || stage === 7) {
       musikStage3.pause();
       musikStage4.play();
     }
