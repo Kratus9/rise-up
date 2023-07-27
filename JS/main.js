@@ -55,6 +55,7 @@ window.addEventListener("keydown", (event) => {
     if (gameObj.player.gravitySpeed === 0) {
         if (event.key === " ") {  //Salta al apretar la SpaceBar
             gameObj.player.jumpEffect();
+            gameObj.player.positionUpdate();
             gameObj.player.gravityOn();
         }
     }
