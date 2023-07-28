@@ -128,7 +128,7 @@ Rise Up es un juego en el cual tu objetivo es llegar a lo más alto posible. Deb
 [Link](https://trello.com/b/VU13rSIu/rise-up)
 
 ### Slides
-[Link]()
+[Link](https://www.canva.com/design/DAFp6hHsIyA/K6FdD-CJvBzg_rWOhRhCdg/edit?utm_content=DAFp6hHsIyA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ## Deploy
 [Link](https://kratus9.github.io/rise-up/)
